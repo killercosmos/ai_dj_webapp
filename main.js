@@ -1,17 +1,19 @@
-ong = "";
+var song = "";
+var song2 = "";
 
 function preload() {
-    song = loadSound("Dark Knights.mp3", "dmn.mp3", "Move On.mp3", "some1_drum_80bpm_ver.mp3");
+    song = loadSound("Dark Knights.mp3");
+    song2 = loadSound("dmn.mp3");
 }
 
-scoreLeftWrist = 0;
-scoreRightWrist = 0;
+var scoreLeftWrist = 0;
+var scoreRightWrist = 0;
 
-LeftWristX = 0;
-RightWristX = 0;
+var LeftWristX = 0;
+var RightWristX = 0;
 
-RightWristY = 0;
-LeftWristY = 0;
+var RightWristY = 0;
+var LeftWristY = 0;
 
 function setup() {
     canvas = createCanvas(600, 500);
@@ -45,9 +47,29 @@ function gotPoses(results) {
     }
 }
 
+
+
 function draw() {
+    var status = "";
 
     image(video,0, 0, 600, 500);
+
+    stroke(#FF0000);
+    fill(#FF0000);
+
+    status = song.isPlaying();
+
+    if(scoreLeftWrist > 0.2){
+
+        circle(LeftWristX, LeftWristY, 20);
+        song2.stop();
+
+        if(status = false ) {
+            song.play();
+        }
+
+    }
+
 }
 
 function play() {
